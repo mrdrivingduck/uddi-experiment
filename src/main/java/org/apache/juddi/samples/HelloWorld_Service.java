@@ -44,7 +44,7 @@ public class HelloWorld_Service
     private final static QName HELLOWORLD_QNAME = new QName("http://samples.juddi.apache.org/", "HelloWorld");
 
     static {
-    	HELLOWORLD_WSDL_LOCATION = ClassUtil.getResource("/wsdl/helloworld.wsdl",HelloWorld_Service.class);
+        HELLOWORLD_WSDL_LOCATION = ClassUtil.getResource("/wsdl/helloworld.wsdl",HelloWorld_Service.class);
     }
 
     public HelloWorld_Service() {
