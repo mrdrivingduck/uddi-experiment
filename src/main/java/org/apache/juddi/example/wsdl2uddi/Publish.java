@@ -58,10 +58,11 @@ public class Publish {
 		System.out.println("2. Programmatically publish the endpoint to UDDI");
 		Publish sp = new Publish();
 		try {
+			
 			uddiClient = new UDDIClient("META-INF/zjt-uddi.xml");
 			String clerkName = "zjt";
-			UDDIClerk clerk = uddiClient.getClerk("zjt");
 
+			UDDIClerk clerk = uddiClient.getClerk(clerkName);
 			System.out.println("setting up the publisher");
 			sp.setupPublisher(uddiClient, clerkName);
 			System.out.println("publish the business");
