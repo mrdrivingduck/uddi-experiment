@@ -8,18 +8,15 @@ import org.uddi.api_v3.BusinessService;
 
 public class Find {
 
-	public void discover() {
+	public void find(String configPath, String clerkName) {
 		try {
-			UDDIClient uddiClient = new UDDIClient("META-INF/zjt-uddi.xml");
-			UDDIClerk clerk = uddiClient.getClerk("zjt");
-			String businessName = uddiClient.getClientConfig().getHomeNode().getProperties()
-					.getProperty("businessName");
+			UDDIClient uddiClient = new UDDIClient(configPath);
+			UDDIClerk clerk = uddiClient.getClerk(clerkName);
+			String businessName = uddiClient.getClientConfig().getHomeNode().getProperties().getProperty("businessName");
 			String keyDomain = uddiClient.getClientConfig().getHomeNode().getProperties().getProperty("keyDomain");
 
 			// System.out.println("Do a find business using the businessKey
-			// uddi:uddi.joepublisher.com:business_wsdl-business");
 			BusinessEntity businessEntity = clerk.getBusinessDetail("uddi:" + keyDomain + ":business_" + businessName);
-			//
 
 			if (businessEntity != null) {
 				System.out.println("Found business with name " + businessEntity.getName().get(0).getValue());
@@ -57,7 +54,6 @@ public class Find {
 	}
 
 	public static void main(String args[]) {
-		Find sp = new Find();
-		sp.discover();
+		new Find().find("META-INF/zjt-uddi.xml", "zjt");
 	}
 }

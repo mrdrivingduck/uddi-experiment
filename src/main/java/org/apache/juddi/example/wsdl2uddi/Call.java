@@ -63,7 +63,6 @@ public class Call {
     }        
 
     public static void main (String args[]) {
-        Call sp = new Call();
-        sp.call();    
+        new Call().call();    
     }
 }
