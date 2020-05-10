@@ -1,12 +1,12 @@
-package org.apache.juddi.example.wsdl2uddi;
+package edu.nuaa.juddi.api;
 
 import java.net.URL;
 import java.util.Map;
 
 import javax.xml.ws.BindingProvider;
 
-import org.apache.juddi.samples.HelloWorld;
-import org.apache.juddi.samples.HelloWorld_Service;
+import edu.nuaa.juddi.samples.HelloWorld;
+import edu.nuaa.juddi.samples.HelloWorld_Service;
 import org.apache.juddi.v3.client.config.UDDIClerk;
 import org.apache.juddi.v3.client.config.UDDIClient;
 import org.apache.juddi.v3.client.mapping.ServiceLocator;

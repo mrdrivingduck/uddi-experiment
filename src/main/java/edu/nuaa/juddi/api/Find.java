@@ -1,4 +1,4 @@
-package org.apache.juddi.example.wsdl2uddi;
+package edu.nuaa.juddi.api;
 
 import org.apache.juddi.v3.client.config.UDDIClerk;
 import org.apache.juddi.v3.client.config.UDDIClient;

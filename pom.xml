@@ -84,7 +84,7 @@
                   <goal>java</goal>
                 </goals>
                 <configuration>
-                  <mainClass>org.apache.juddi.example.wsdl2uddi.Publish</mainClass>
+                  <mainClass>edu.nuaa.juddi.api.Publish</mainClass>
                 </configuration>
               </execution>
             </executions>
@@ -107,7 +107,7 @@
                   <goal>java</goal>
                 </goals>
                 <configuration>
-                  <mainClass>org.apache.juddi.example.wsdl2uddi.Find</mainClass>
+                  <mainClass>edu.nuaa.juddi.api.Find</mainClass>
                 </configuration>
               </execution>
             </executions>
@@ -130,7 +130,7 @@
                   <goal>java</goal>
                 </goals>
                 <configuration>
-                  <mainClass>org.apache.juddi.example.wsdl2uddi.Call</mainClass>
+                  <mainClass>edu.nuaa.juddi.api.Call</mainClass>
                 </configuration>
               </execution>
             </executions>
@@ -153,7 +153,7 @@
                   <goal>java</goal>
                 </goals>
                 <configuration>
-                  <mainClass>org.apache.juddi.example.wsdl2uddi.Delete</mainClass>
+                  <mainClass>edu.nuaa.juddi.api.Delete</mainClass>
                 </configuration>
               </execution>
             </executions>

@@ -1,10 +1,10 @@
-package org.apache.juddi.example.wsdl2uddi;
+package edu.nuaa.juddi.api;
 
 import javax.jws.WebService;
 
-import org.apache.juddi.samples.HelloWorld;
+import edu.nuaa.juddi.samples.HelloWorld;
 
-@WebService(endpointInterface = "org.apache.juddi.samples.HelloWorld", serviceName = "HelloWorld")
+@WebService(endpointInterface = "edu.nuaa.juddi.samples.HelloWorld", serviceName = "HelloWorld")
 
 public class HelloWorldImpl implements HelloWorld {
 

@@ -1,4 +1,4 @@
-package org.apache.juddi.example.wsdl2uddi;
+package edu.nuaa.juddi.api;
 
 import java.util.List;
 

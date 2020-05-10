@@ -14,7 +14,7 @@
  * limitations under the License.
  *
  */
-package org.apache.juddi.samples;
+package edu.nuaa.juddi.samples;
 
 import java.net.URL;
 

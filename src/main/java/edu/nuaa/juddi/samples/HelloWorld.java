@@ -14,7 +14,7 @@
  * limitations under the License.
  *
  */
-package org.apache.juddi.samples;
+package edu.nuaa.juddi.samples;
 
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
@@ -46,8 +46,8 @@ public interface HelloWorld {
      */
     @WebMethod
     @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "sayHi", targetNamespace = "http://samples.juddi.apache.org/", className = "org.apache.juddi.samples.SayHi")
-    @ResponseWrapper(localName = "sayHiResponse", targetNamespace = "http://samples.juddi.apache.org/", className = "org.apache.juddi.samples.SayHiResponse")
+    @RequestWrapper(localName = "sayHi", targetNamespace = "http://samples.juddi.apache.org/", className = "edu.nuaa.juddi.samples.SayHi")
+    @ResponseWrapper(localName = "sayHiResponse", targetNamespace = "http://samples.juddi.apache.org/", className = "edu.nuaa.juddi.samples.SayHiResponse")
     public String sayHi(
         @WebParam(name = "text", targetNamespace = "")
         String text);

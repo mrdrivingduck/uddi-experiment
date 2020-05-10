@@ -7,7 +7,7 @@ In step 4 is demonstrates how to use the ServiceLocator.
 
 3. Create Joe Publisher and his keyGenerator and then register the services in wsdl/helloworld.wsdl to jUDDI.
 it creates a businessEntity with businessKey 'uddi:uddi.joepublisher.com:business_wsdl-business' using
-the org.apache.juddi.example.wsdl2uddi.Publish class, which is called using
+the edu.nuaa.juddi.api.Publish class, which is called using
 
 mvn -Ppublish test
 
@@ -50,7 +50,7 @@ You can check that it is up by navigating to this url in your browser.
 Also you can check created UDDI data structures by browsing to this business using the juddi-gui.
 
 4. Lets check that we can find this business in the registry by running from Queries
-using the org.apache.juddi.example.wsdl2uddi.Find class which is called using:
+using the edu.nuaa.juddi.api.Find class which is called using:
 
 mvn -Pfind test
 
@@ -83,7 +83,7 @@ using <wsdl:documentation> elements.
 4. For extra credit we can use the ServiceLocator to obtain an accessPoint for service
 'uddi:uddi.joepublisher.com:service_helloworld'. And we then use this information to call
 this WebService Endpoint. In this example we use the code in the
-org.apache.juddi.example.wsdl2uddi.Call class, which is called using
+edu.nuaa.juddi.api.Call class, which is called using
 
  mvn -Pcall test
  
