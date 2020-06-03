@@ -51,11 +51,11 @@ public class Publish {
 
 	public static void main(String args[]) {
 
-		System.out.println("1. Bring up the hello world endpoint at port 18080");
+		System.out.println("1. 将 hello world endpoint 发布到端口 18080");
 		Endpoint helloWorldEndPoint = Endpoint.create(new HelloWorldImpl());
 		helloWorldEndPoint.publish("http://localhost:18080/services/helloworld");
 
-		System.out.println("2. Programmatically publish the endpoint to UDDI");
+		System.out.println("2. 向 UDDI 注册 endpoint");
 		Publish sp = new Publish();
 		try {
 			
@@ -63,14 +63,14 @@ public class Publish {
 			String clerkName = "zjt";
 
 			UDDIClerk clerk = uddiClient.getClerk(clerkName);
-			System.out.println("setting up the publisher");
+			System.out.println("设置 publisher");
 			sp.setupPublisher(uddiClient, clerkName);
-			System.out.println("publish the business");
+			System.out.println("发布 business");
 			sp.publishBusiness(uddiClient, clerkName);
-			System.out.println("and the wsdl");
+			System.out.println("发布 WSDL");
 			sp.publishWSDL(clerk);
 
-			System.out.println("waiting for calls into the HelloWorldImpl...");
+			System.out.println("HelloWorldImpl 等待被调用...");
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -91,7 +91,7 @@ public class Publish {
 		getAuthTokenRoot.setCred("");
 		// Making API call that retrieves the authentication token for the 'root' user.
 		AuthToken rootAuthToken = security.getAuthToken(getAuthTokenRoot);
-		System.out.println("root AUTHTOKEN = " + rootAuthToken.getAuthInfo());
+		System.out.println("获取 root AUTHTOKEN = " + rootAuthToken.getAuthInfo());
 
 		// Creating joe publisher THIS IS JUDDI Specific code
 		JUDDIApiPortType juddiApi = uddiClient.getTransport("default").getJUDDIApiService();

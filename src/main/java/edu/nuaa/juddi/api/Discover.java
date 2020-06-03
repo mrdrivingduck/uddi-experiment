@@ -104,12 +104,12 @@ public class Discover {
         } else {
             for (int i = 0; i < businessInfos.getBusinessInfo().size(); i++) {
                 System.out.println("===============================================");
-                System.out.println("Business Key: " + businessInfos.getBusinessInfo().get(i).getBusinessKey());
-                System.out.println("Name: " + ListToString(businessInfos.getBusinessInfo().get(i).getName()));
+                System.out.println("--> Business Key: " + businessInfos.getBusinessInfo().get(i).getBusinessKey());
+                System.out.println("--> Name: " + ListToString(businessInfos.getBusinessInfo().get(i).getName()));
 
                 System.out.println(
-                        "Description: " + ListToDescString(businessInfos.getBusinessInfo().get(i).getDescription()));
-                System.out.println("Services:");
+                        "--> Description: " + ListToDescString(businessInfos.getBusinessInfo().get(i).getDescription()));
+                System.out.println("--> Services:");
                 PrintServiceInfo(businessInfos.getBusinessInfo().get(i).getServiceInfos());
             }
         }
@@ -134,9 +134,9 @@ public class Discover {
     private void PrintServiceInfo(ServiceInfos serviceInfos) {
         for (int i = 0; i < serviceInfos.getServiceInfo().size(); i++) {
             System.out.println("-------------------------------------------");
-            System.out.println("Service Key: " + serviceInfos.getServiceInfo().get(i).getServiceKey());
-            System.out.println("Owning Business Key: " + serviceInfos.getServiceInfo().get(i).getBusinessKey());
-            System.out.println("Name: " + ListToString(serviceInfos.getServiceInfo().get(i).getName()));
+            System.out.println("------> Service Key: " + serviceInfos.getServiceInfo().get(i).getServiceKey());
+            System.out.println("------> Owing Business Key: " + serviceInfos.getServiceInfo().get(i).getBusinessKey());
+            System.out.println("------> Name: " + ListToString(serviceInfos.getServiceInfo().get(i).getName()));
         }
     }
 
@@ -148,10 +148,10 @@ public class Discover {
         }
         BusinessDetail businessDetail = inquiry.getBusinessDetail(gbd);
         for (int i = 0; i < businessDetail.getBusinessEntity().size(); i++) {
-            System.out.println("Business Detail - key: " + businessDetail.getBusinessEntity().get(i).getBusinessKey());
-            System.out.println("Name: " + ListToString(businessDetail.getBusinessEntity().get(i).getName()));
+            System.out.println("--> Business Detail - key: " + businessDetail.getBusinessEntity().get(i).getBusinessKey());
+            System.out.println("--> Name: " + ListToString(businessDetail.getBusinessEntity().get(i).getName()));
             System.out.println(
-                    "CategoryBag: " + CatBagToString(businessDetail.getBusinessEntity().get(i).getCategoryBag()));
+                    "--> CategoryBag: " + CatBagToString(businessDetail.getBusinessEntity().get(i).getCategoryBag()));
             PrintContacts(businessDetail.getBusinessEntity().get(i).getContacts());
         }
     }
@@ -178,14 +178,14 @@ public class Discover {
         if (get == null) {
             return;
         }
-        System.out.println("Name " + ListToString(get.getName()));
-        System.out.println("Desc " + ListToDescString(get.getDescription()));
-        System.out.println("Key " + (get.getServiceKey()));
-        System.out.println("Cat bag " + CatBagToString(get.getCategoryBag()));
+        System.out.println("------> Name " + ListToString(get.getName()));
+        System.out.println("------> Desc " + ListToDescString(get.getDescription()));
+        System.out.println("------> Key " + (get.getServiceKey()));
+        System.out.println("------> Cat bag " + CatBagToString(get.getCategoryBag()));
         if (!get.getSignature().isEmpty()) {
-            System.out.println("Item is digitally signed");
+            System.out.println("** Item is digitally signed");
         } else {
-            System.out.println("Item is not digitally signed");
+            System.out.println("** Item is not digitally signed");
         }
         PrintBindingTemplates(get.getBindingTemplates());
     }
@@ -201,7 +201,7 @@ public class Discover {
             return;
         }
         for (int i = 0; i < bindingTemplates.getBindingTemplate().size(); i++) {
-            System.out.println("Binding Key: " + bindingTemplates.getBindingTemplate().get(i).getBindingKey());
+            System.out.println("------> Binding Key: " + bindingTemplates.getBindingTemplate().get(i).getBindingKey());
             // TODO The UDDI spec is kind of strange at this point.
             // An access point could be a URL, a reference to another UDDI binding key, a
             // hosting redirector (which is
@@ -215,27 +215,27 @@ public class Discover {
             // Consult the UDDI specification for more information
 
             if (bindingTemplates.getBindingTemplate().get(i).getAccessPoint() != null) {
-                System.out.println("Access Point: "
+                System.out.println("------> Access Point: "
                         + bindingTemplates.getBindingTemplate().get(i).getAccessPoint().getValue() + " type "
                         + bindingTemplates.getBindingTemplate().get(i).getAccessPoint().getUseType());
                 if (bindingTemplates.getBindingTemplate().get(i).getAccessPoint().getUseType() != null) {
                     if (bindingTemplates.getBindingTemplate().get(i).getAccessPoint().getUseType()
                             .equalsIgnoreCase(AccessPointType.END_POINT.toString())) {
-                        System.out.println("Use this access point value as an invocation endpoint.");
+                        System.out.println("** Use this access point value as an invocation endpoint.");
                     }
                     if (bindingTemplates.getBindingTemplate().get(i).getAccessPoint().getUseType()
                             .equalsIgnoreCase(AccessPointType.BINDING_TEMPLATE.toString())) {
-                        System.out.println("Use this access point value as a reference to another binding template.");
+                        System.out.println("** Use this access point value as a reference to another binding template.");
                     }
                     if (bindingTemplates.getBindingTemplate().get(i).getAccessPoint().getUseType()
                             .equalsIgnoreCase(AccessPointType.WSDL_DEPLOYMENT.toString())) {
                         System.out.println(
-                                "Use this access point value as a URL to a WSDL document, which presumably will have a real access point defined.");
+                                "** Use this access point value as a URL to a WSDL document, which presumably will have a real access point defined.");
                     }
                     if (bindingTemplates.getBindingTemplate().get(i).getAccessPoint().getUseType()
                             .equalsIgnoreCase(AccessPointType.HOSTING_REDIRECTOR.toString())) {
                         System.out.println(
-                                "Use this access point value as an Inquiry URL of another UDDI registry, look up the same binding template there (usage varies).");
+                                "** Use this access point value as an Inquiry URL of another UDDI registry, look up the same binding template there (usage varies).");
                     }
                 }
             }

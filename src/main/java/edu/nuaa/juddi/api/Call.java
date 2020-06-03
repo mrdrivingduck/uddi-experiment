@@ -20,16 +20,16 @@ public class Call {
             
             //find the service in the UDDI registry
             // System.out.println("The clientside of a runtime lookup usually knows the serviceKey.");
-            System.out.println("To get updated binding information you should use the ServiceLocator with a live cache.");
+            // System.out.println("To get updated binding information you should use the ServiceLocator with a live cache.");
             String helloWorldServiceKey = "uddi:uddi.zjt.cn:service_helloworld";
             
             long startTime = System.currentTimeMillis();
             ServiceLocator serviceLocator = new ServiceLocator(clerk); 
-            System.out.println("Created Cache in " + (System.currentTimeMillis() - startTime) + " [milliseconds]");
-            System.out.println("Now adding a listener to the cache..."); //expensive
+            System.out.println("---> Created Cache in " + (System.currentTimeMillis() - startTime) + " [milliseconds]");
+            System.out.println("---> Now adding a listener to the cache..."); //expensive
             startTime = System.currentTimeMillis();
             serviceLocator.withLiveCache(new URL("http://localhost:18079"));
-            System.out.println("Add Listener to Cache in " + (System.currentTimeMillis() - startTime) + " [milliseconds]");
+            System.out.println("---> Add Listener to Cache in " + (System.currentTimeMillis() - startTime) + " [milliseconds]");
             
             //first time the lookup will have to contact UDDI
             startTime = System.currentTimeMillis();
@@ -49,7 +49,7 @@ public class Call {
             Map<String, Object> requestContext = ((BindingProvider) helloWorld).getRequestContext();
             requestContext.put(BindingProvider.ENDPOINT_ADDRESS_PROPERTY, endpoint2);
             String reply = helloWorld.sayHi("Mr Dk.");
-            System.out.println("*************** Service reply: " + reply);
+            System.out.println("------------> Service reply: " + reply);
             //need to call shutdown to take down the LiveCache Callback Endpoint.
             Thread.sleep(10l);
             serviceLocator.shutdown();
